@@ -11,9 +11,7 @@ NEGRO = (0, 0, 0)
 GRIS = (128, 128, 128)
 VERDE = (0, 255, 0)
 ROJO = (255, 0, 0)
-NARANJA = (255, 165, 0)
-PURPURA = (128, 0, 128)
-AZUL = (0, 0, 255)
+CYAN = (0, 255, 255)
 AMARILLO = (255, 255, 0)
 
 class Nodo:
@@ -31,40 +29,40 @@ class Nodo:
         return self.fila, self.col
     
     def es_cerrado(self):
-        return self.color == ROJO
-    
-    def es_abierto(self):
         return self.color == VERDE
     
-    def es_pared(self):
+    def es_abierto(self):
         return self.color == NEGRO
     
+    def es_pared(self):
+        return self.color == GRIS
+    
     def es_inicio(self):
-        return self.color == NARANJA
+        return self.color == CYAN
     
     def es_fin(self):
-        return self.color == PURPURA
+        return self.color == ROJO
     
     def restablecer(self):
         self.color = BLANCO
     
     def hacer_inicio(self):
-        self.color = NARANJA
+        self.color = CYAN
     
     def hacer_cerrado(self):
-        self.color = ROJO
-    
-    def hacer_abierto(self):
         self.color = VERDE
     
-    def hacer_pared(self):
+    def hacer_abierto(self):
         self.color = NEGRO
     
+    def hacer_pared(self):
+        self.color = GRIS
+    
     def hacer_fin(self):
-        self.color = PURPURA
+        self.color = ROJO
     
     def hacer_camino(self):
-        self.color = AZUL
+        self.color = AMARILLO
     
     def dibujar(self, ventana):
         pygame.draw.rect(ventana, self.color, (self.x, self.y, self.ancho, self.ancho))
