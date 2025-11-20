@@ -6,7 +6,7 @@ import requests
 import io
 import time
 import os
-PATH = "C:\\Users\\21830\\Documents\\GIT\\INTELIGENCIAARTIFICIAL-ALCARAZ\\Proyecto\\chromedriver.exe"
+PATH = "C:\\Users\\eliga\\OneDrive\\Documentos\\GitHub\\INTELIGENCIAARTIFICIAL-ALCARAZ\\Proyecto\\chromedriver.exe"
 def descargar_imagenes_google(query, cantidad):
    
     service = Service(PATH)
@@ -22,7 +22,6 @@ def descargar_imagenes_google(query, cantidad):
         driver.execute_script("window.scrollBy(0, 1000);")
         time.sleep(1)
        
-     
         imagenes = driver.find_elements(By.TAG_NAME, "img")
        
         for img in imagenes:
@@ -46,9 +45,9 @@ def descargar_imagenes_google(query, cantidad):
         try:
             img_data = requests.get(url, timeout=10).content
             img = Image.open(io.BytesIO(img_data)).convert("RGB")
-            img.save(f"Proyecto/imagenes/perro{i}.jpg", "JPEG")
+            img.save(f"Proyecto/gatos/gato{i}.jpg", "JPEG")
             descargadas += 1
            
         except:
             print(f"ERROR AL DESCARGAR IMAGEN {i+1}")
-descargar_imagenes_google("dogs", 20)
+descargar_imagenes_google("cats full body", 20)
